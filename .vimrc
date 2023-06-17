@@ -130,7 +130,11 @@ set notimeout ttimeout ttimeoutlen=200
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
 
+" Increamental highlighting when searching for text
+set incsearch
 
+" Allows us to view 5 more lines above or below our current cursor position
+set scrolloff=5
 "------------------------------------------------------------
 " Indentation options {{{1
 "
@@ -142,10 +146,9 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-" Indentation settings for using hard tabs for indent. Display tabs as
-" four characters wide.
-"set shiftwidth=4
-"set tabstop=4
+"   Update the tab character to unicode u2192
+"   Update the tab character to unicode u21b2
+set listchars=tab:→\ ,eol:↲
 
 
 "------------------------------------------------------------
@@ -160,3 +163,26 @@ map Y y$
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
+
+"   Centre page of page up and down
+nmap <C-d> <C-d>zz
+nmap <C-u> <C-u>zz
+
+"   Yank to the system clipboard
+nmap <leader>y "+y
+vmap <leader>y "+y
+
+nmap <leader>Y "+Y
+nmap <leader>Y "+Y
+
+"   Paste from the system clipbaord
+vmap <leader>p "+p
+vmap <leader>P "+P
+
+nmap <leader>p "+p
+nmap <leader>P "+P
+
+noremap <C-h> <C-W>h
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-l> <C-W>l
