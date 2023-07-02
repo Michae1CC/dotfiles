@@ -135,6 +135,12 @@ set incsearch
 
 " Allows us to view 5 more lines above or below our current cursor position
 set scrolloff=5
+
+" Set folding to collapse text on indentation. Close all folds with zM.
+" To fold level by level use zm. To open all folds use zR or zr for level by level.
+set foldmethod=syntax
+set foldnestmax=2
+
 "------------------------------------------------------------
 " Indentation options {{{1
 "
@@ -146,8 +152,8 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-"   Update the tab character to unicode u2192
-"   Update the tab character to unicode u21b2
+"   Update the tab character to unicode u2192 (refer to "set list" command)
+"   Update the newline character to unicode u21b2
 set listchars=tab:→\ ,eol:↲
 
 
@@ -170,10 +176,10 @@ nmap <C-u> <C-u>zz
 
 "   Yank to the system clipboard
 nmap <leader>y "+y
-vmap <leader>y "+y
+nmap <leader>Y "+Y
 
-nmap <leader>Y "+Y
-nmap <leader>Y "+Y
+vmap <leader>y "+y
+vmap <leader>Y "+Y
 
 "   Paste from the system clipbaord
 vmap <leader>p "+p
@@ -182,7 +188,11 @@ vmap <leader>P "+P
 nmap <leader>p "+p
 nmap <leader>P "+P
 
+"   Use the control key and movement keys to navigate between panes
 noremap <C-h> <C-W>h
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
 noremap <C-l> <C-W>l
+
+auto BufWinLeave *.* mkview
+auto BufWinEnter *.* silent loadview
