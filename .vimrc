@@ -68,6 +68,9 @@ set hlsearch
 " script, <http://www.vim.org/scripts/script.php?script_id=1876>.
 " set nomodeline
 
+"   Update the tab character to unicode u2192 (refer to "set list" command)
+"   Update the newline character to unicode u21b2
+set listchars=tab:→\ ,eol:↲
 
 "------------------------------------------------------------
 " Usability options {{{1
@@ -152,11 +155,6 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-"   Update the tab character to unicode u2192 (refer to "set list" command)
-"   Update the newline character to unicode u21b2
-set listchars=tab:→\ ,eol:↲
-
-
 "------------------------------------------------------------
 " Mappings {{{1
 "
@@ -170,25 +168,50 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
-"   Centre page of page up and down
+" Motion Bindings
+" Move the select text up and down
+vmap J :m '>+1<CR>gv=gv
+vmap K :m '<-2<CR>gv=gv
+
+" Centre page of page up and down
 nmap <C-d> <C-d>zz
 nmap <C-u> <C-u>zz
 
-"   Yank to the system clipboard
+" Yank to the system clipboard
 nmap <leader>y "+y
 nmap <leader>Y "+Y
 
 vmap <leader>y "+y
 vmap <leader>Y "+Y
 
-"   Paste from the system clipbaord
+" Paste from the system clipbaord
 vmap <leader>p "+p
 vmap <leader>P "+P
 
 nmap <leader>p "+p
 nmap <leader>P "+P
 
-"   Use the control key and movement keys to navigate between panes
+" Delete to the void buffer
+nmap <leader>d "_d
+vmap <leader>d "_d
+
+nmap <leader>D "_D
+vmap <leader>D "_D
+
+" Use a line cursor within insert mode and a block cursor everywhere else.
+"
+" Reference chart of values:
+"   Ps = 0  -> blinking block.
+"   Ps = 1  -> blinking block (default).
+"   Ps = 2  -> steady block.
+"   Ps = 3  -> blinking underline.
+"   Ps = 4  -> steady underline.
+"   Ps = 5  -> blinking bar (xterm).
+"   Ps = 6  -> steady bar (xterm).
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+" Use the control key and movement keys to navigate between panes
 noremap <C-h> <C-W>h
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
