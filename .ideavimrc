@@ -1,0 +1,55 @@
+source ~/.vimrc
+
+set clipboard=unnamed
+
+" Below are idea specific bindings. See:
+" https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
+" for a fuill list of actions
+
+" For these next two, you will need to remove all the default
+" intellj bindings
+
+" Move to the pane on the right
+nmap <C-l> :action NextSplitter<cr>
+
+" Move to the pane on the left
+nmap <C-h> :action PrevSplitter<cr>
+
+" Read Find File. Search project for file
+nmap <leader>ff :action GotoFile<cr>
+" Read Find Grep. Search project for text
+nmap <leader>fg :action FindInPath<cr>
+" Read Find Replace. Search and replace text at a project level
+nmap <leader>fr :action ReplaceInPath<cr>
+
+" Search project for class
+nmap <leader>fc :action GotoClass<cr>
+" Search current file for text
+nmap <leader>fd :action Find<cr>
+" Search globally for Symbol
+nmap <leader>fs :action GotoSymbol<cr>
+
+" Read Generate Comment (visual mode)
+vmap gc :action CommentByLineComment<cr>
+" Read Generate Comment (normal mode, single line)
+nmap gcc :action CommentByLineComment<cr>
+" Read Goto Definiton 
+nmap gd :action GotoDeclaration<cr>
+" Read Get reFerences
+nmap gf :action FindUsages<cr>
+nmap gr :action FindUsages<cr>
+" Read Goto Implementation
+nmap gi :action GotoImplementation<cr>
+
+" Read Diagnostics next. Jump to the next error.
+nmap [d :action GotoNextError<cr>
+" Read Diagnostics previous. Jump to the previous error.
+nmap ]d :action GotoPreviousError<cr>
+
+" Read Vim ReName. Opens up rename editor.
+nmap <leader>vrn :action Replace<cr>
+" Read Vim get RefeRences. Highlights all refernces of the current word.
+nmap <leader>vrr :action Find<cr>
+
+" Read open file Explorer.
+nmap <leader>e :action <C><S><e>
