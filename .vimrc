@@ -140,9 +140,24 @@ set incsearch
 set scrolloff=5
 
 " Set folding to collapse text on indentation. Close all folds with zM.
-" To fold level by level use zm. To open all folds use zR or zr for level by level.
 set foldmethod=syntax
 set foldnestmax=2
+
+" Display a horizontal line on the cursors current position when in insert mode
+autocmd InsertEnter * set cursorline
+autocmd InsertLeave * set nocursorline
+
+" Display the cursor as a line on insert mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+" reset the cursor on start (for older versions of vim, usually not required)
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
+
+" Display a 80 character margin
+set colorcolumn=81
 
 "------------------------------------------------------------
 " Indentation options {{{1
