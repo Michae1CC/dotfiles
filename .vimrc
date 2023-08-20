@@ -226,11 +226,5 @@ vmap <leader>D "_D
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
-" Use the control key and movement keys to navigate between panes
-noremap <C-h> <C-W>h
-noremap <C-j> <C-W>j
-noremap <C-k> <C-W>k
-noremap <C-l> <C-W>l
-
 auto BufWinLeave *.* mkview
 auto BufWinEnter *.* silent loadview
