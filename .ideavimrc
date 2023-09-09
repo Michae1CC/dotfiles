@@ -1,10 +1,12 @@
 source ~/.vimrc
 
 set clipboard=unnamed
+set relativenumber
+set number 
 
 " Below are idea specific bindings. See:
 " https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
-" for a fuill list of actions
+" for a full list of actions
 
 " For these next two, you will need to remove all the default
 " intellj bindings
