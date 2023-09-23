@@ -6,11 +6,6 @@ for file in ~/.{aliases,zsh_prompt,iterm2_shell_integration.zsh}; do
 done;
 unset file;
 
-#Git auto-complete
-if [ -f ~/.git-completion.bash ]; then
-    source ~/.git-completion.bash
-fi
-
 source $(brew --prefix nvm)/nvm.sh
 # Setting PATH for Python 3.7
 # PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"

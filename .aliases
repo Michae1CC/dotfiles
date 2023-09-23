@@ -44,11 +44,16 @@ alias update_system='sudo softwareupdate -i -a'
 alias gitdotfiles='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # Taken from: https://stackoverflow.com/questions/3466166/how-to-check-if-running-in-cygwin-mac-or-linux
-if [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+
+if [ "$(uname -s)" = "MINGW64_NT" ]
+then
     # Windows specific aliases
     alias jq='jq-win64.exe'
     alias pycharm='pycharm64.exe'
     alias tree='tree.exe'
     alias kubectl='kubectl.exe'
     alias 7z='7z.exe'
+elif [ "$(uname -s)" = "Darwin" ]
+then
+    alias python='python3.11'
 fi
