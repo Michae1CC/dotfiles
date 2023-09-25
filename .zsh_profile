@@ -7,6 +7,3 @@ done;
 unset file;
 
 source $(brew --prefix nvm)/nvm.sh
-# Setting PATH for Python 3.7
-# PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
-# export PATH
