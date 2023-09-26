@@ -44,7 +44,7 @@ alias update_system='sudo softwareupdate -i -a'
 alias gitdotfiles='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # Taken from: https://stackoverflow.com/questions/3466166/how-to-check-if-running-in-cygwin-mac-or-linux
-OS_TYPE=$(uname -s | awk '{print substr($0,0,9)}')
+OS_TYPE=$(uname -s | awk '{print substr($0,0,10)}')
 if [ "$OS_TYPE" = "MINGW64_NT" ]
 then
     # Windows specific aliases
