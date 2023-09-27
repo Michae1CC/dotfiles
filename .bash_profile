@@ -8,7 +8,7 @@ unset file;
 # Add programs from the Applications folder to PATH
 PATH=$PATH:~/Applications
 # Add pycharm to PATH
-PATH=$PATH:"/c/Program Files/JetBrains/PyCharm 2023.2.1/bin"
+PATH="/c/Program Files/JetBrains/PyCharm 2023.2.1/bin":$PATH
 PATH=$PATH:"/c/Program Files/7-Zip"
 PATH=$PATH:"/c/cygwin64/bin"
 
