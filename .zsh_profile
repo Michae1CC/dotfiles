@@ -7,3 +7,9 @@ done;
 unset file;
 
 source $(brew --prefix nvm)/nvm.sh
+
+# Ignore commands that have been entered twice in a row
+export HISTCONTROL=ignoreboth
+
+# Commands listed here won't be listed in command history
+export HISTIGNORE="exit:pwd:ls"

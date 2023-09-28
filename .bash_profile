@@ -5,6 +5,17 @@ for file in ~/.{bash_prompt,aliases,private}; do
 done;
 unset file;
 
+# Git auto-complete
+if [ -f ~/.git-completion.bash ]; then
+    source ~/.git-completion.bash
+fi
+
+# Ignore commands that have been entered twice in a row
+export HISTCONTROL=ignoreboth
+
+# Commands listed here won't be listed in command history
+export HISTIGNORE="exit:pwd:ls"
+
 # Add programs from the Applications folder to PATH
 PATH=$PATH:~/Applications
 # Add pycharm to PATH
@@ -16,7 +27,3 @@ PATH=$PATH:"/c/cygwin64/bin"
 set -o vi
 set -o history
 
-#Git auto-complete
-if [ -f ~/.git-completion.bash ]; then
-    source ~/.git-completion.bash
-fi
