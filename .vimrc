@@ -136,8 +136,13 @@ set pastetoggle=<F11>
 " Increamental highlighting when searching for text
 set incsearch
 
-" Allows us to view 5 more lines above or below our current cursor position
-set scrolloff=5
+" Allows setting scrolloff to a value of 5 displays 5 lines above or below 
+" our current cursor position. Setting the value to 999 causes the cusor to
+" stay in the middle of the line when possible. Begin with a no-scroll value
+" of 999.
+set scrolloff=999
+" This binding allows us to toggle between 999 and 5.
+:nnoremap <leader>zz :let &scrolloff=999-&scrolloff<cr>
 
 " Set folding to collapse text on indentation. Close all folds with zM.
 set foldmethod=syntax
