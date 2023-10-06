@@ -70,12 +70,17 @@ __prompt_command() {
 			COMPLETION_PATH="${GIT_EXEC_PATH%/libexec/git-core}"
 			COMPLETION_PATH="${COMPLETION_PATH%/lib/git-core}"
 			COMPLETION_PATH="$COMPLETION_PATH/share/git/completion"
-			if test -f "$COMPLETION_PATH/git-prompt.sh"
+                        BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+                        if [ ! "${BRANCH}" == "" ]
 			then
 				. "$COMPLETION_PATH/git-completion.bash"
 				. "$COMPLETION_PATH/git-prompt.sh"
 				PS1="$PS1"'\[${green}\]'  # change color to cyan
-				PS1="$PS1 "'`parse_git_branch`'   # bash function
+                                STAT=`parse_git_dirty`
+                                PS1="$PS1 ["
+                                PS1="${PS1}${BRANCH}"'\[${orange}\]'
+                                PS1="${PS1}${STAT}"'\[${green}\]'
+                                PS1="${PS1}]"
 			fi
 		fi
 		# Change the prompt colour depending on the exit status
@@ -105,13 +110,17 @@ function nonzero_return() {
 	[ $RETVAL -ne 0 ] && echo "$RETVAL"
 }
 
-# get current branch in git repo
+# get current branch in git repo (not currently using this)
 function parse_git_branch() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 	if [ ! "${BRANCH}" == "" ]
 	then
 		STAT=`parse_git_dirty`
-		echo "[${BRANCH}${STAT}]"
+                BRANCH_AND_STAT=" ["
+                BRANCH_AND_STAT="${BRANCH_AND_STAT}${BRANCH}"'\[${orange}\]'
+                BRANCH_AND_STAT="${BRANCH_AND_STAT}${STAT}"'\[${green}\]'
+                BRANCH_AND_STAT="${BRANCH_AND_STAT}]"
+		echo "$BRANCH_AND_STAT"
 	else
 		echo ""
 	fi
