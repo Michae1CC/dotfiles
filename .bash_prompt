@@ -75,7 +75,7 @@ __prompt_command() {
 				. "$COMPLETION_PATH/git-completion.bash"
 				. "$COMPLETION_PATH/git-prompt.sh"
 				PS1="$PS1"'\[${green}\]'  # change color to cyan
-				PS1="$PS1"'`__git_ps1`'   # bash function
+				PS1="$PS1 "'`parse_git_branch`'   # bash function
 			fi
 		fi
 		# Change the prompt colour depending on the exit status
