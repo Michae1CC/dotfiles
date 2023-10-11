@@ -78,7 +78,7 @@ __prompt_command() {
 				PS1="$PS1"'\[${green}\]'  # change color to cyan
                                 STAT=`parse_git_dirty`
                                 PS1="${PS1} ${BRANCH}"'\[${orange}\]'
-                                PS1="${PS1} ${STAT}"
+                                PS1="${PS1}${STAT}"
 			fi
 		fi
 		# Change the prompt colour depending on the exit status
