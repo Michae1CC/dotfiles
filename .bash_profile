@@ -5,9 +5,18 @@ for file in ~/.{bash_prompt,aliases,private}; do
 done;
 unset file;
 
+# Only the owner of the file will be able to write to files
+# created by them
+umask 0022
+
 # Git auto-complete
 if [ -f ~/.git-completion.bash ]; then
     source ~/.git-completion.bash
+fi
+
+# Use podman for building images with AWS CDK if docker is not installed
+if ! command -v docker &> /dev/null && command -v podman &> /dev/null; then
+  export CDK_DOCKER=podman
 fi
 
 # Ignore commands that have been entered twice in a row

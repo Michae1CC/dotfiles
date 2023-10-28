@@ -6,7 +6,18 @@ for file in ~/.{aliases,zsh_prompt,iterm2_shell_integration.zsh}; do
 done;
 unset file;
 
+# Only the owner of the file will be able to write to files
+# created by them
+umask 0022
+
 source $(brew --prefix nvm)/nvm.sh
+
+# AWS configurations
+
+# Use podman for AWS CDK image build if docker is not installed
+if ! command -v docker &> /dev/null && command -v podman &> /dev/null; then
+  export CDK_DOCKER=podman
+fi
 
 # Ignore commands that have been entered twice in a row
 export HISTCONTROL=ignoreboth
