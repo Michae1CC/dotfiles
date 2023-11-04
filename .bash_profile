@@ -9,6 +9,10 @@ unset file;
 # created by them
 umask 0022
 
+# Show and tab through suggestions in prompt
+bind "TAB:menu-complete"
+bind "set show-all-if-ambiguous on"
+
 # Git auto-complete
 if [ -f ~/.git-completion.bash ]; then
     source ~/.git-completion.bash

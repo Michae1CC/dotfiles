@@ -10,6 +10,10 @@ unset file;
 # created by them
 umask 0022
 
+# Show and tab through suggestions in prompt
+bindkey '^I' "TAB:menu-complete"
+bindkey '^I' "set show-all-if-ambiguous on"
+
 source $(brew --prefix nvm)/nvm.sh
 
 # AWS configurations
