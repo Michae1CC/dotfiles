@@ -22,7 +22,7 @@ nmap <leader>ff :action GotoFile<cr>
 " Read Find Grep. Search project for text
 nmap <leader>fg :action FindInPath<cr>
 " Read Find Replace. Search and replace text at a project level
-nmap <leader>fr :action ReplaceInPath<cr>
+nmap <leader>fr :action RenameElement<cr>
 
 " Search project for class
 nmap <leader>fc :action GotoClass<cr>
@@ -44,12 +44,16 @@ nmap gr :action FindUsages<cr>
 nmap gi :action GotoImplementation<cr>
 
 " Read Diagnostics next. Jump to the next error.
-nmap [d :action GotoNextError<cr>
+nmap ]d :action GotoNextError<cr>
 " Read Diagnostics previous. Jump to the previous error.
-nmap ]d :action GotoPreviousError<cr>
+nmap [d :action GotoPreviousError<cr>
+
+" Goto the next change tracked by the version control system
+nmap ]c :action VcsShowNextChangeMarker<cr>
+nmap [c :action VcsShowPrevChangeMarker<cr>
 
 " Read Vim ReName. Opens up rename editor.
-nmap <leader>vrn :action Replace<cr>
+nmap <leader>vrn :action ReplaceElement<cr>
 " Read Vim get RefeRences. Highlights all refernces of the current word.
 nmap <leader>vrr :action Find<cr>
 
