@@ -142,7 +142,7 @@ set incsearch
 " of 999.
 set scrolloff=999
 " This binding allows us to toggle between 999 and 5.
-:nnoremap <leader>zz :let &scrolloff=999-&scrolloff<cr>
+nnoremap <leader>zz :let &scrolloff=999-&scrolloff<cr>
 
 " Set folding to collapse text on indentation. Close all folds with zM.
 set foldmethod=syntax
