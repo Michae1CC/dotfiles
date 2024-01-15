@@ -10,11 +10,11 @@ unset file;
 # created by them
 umask 0022
 
-# Show and tab through suggestions in prompt
-bindkey '^I' "TAB:menu-complete"
-bindkey '^I' "set show-all-if-ambiguous on"
-
-source $(brew --prefix nvm)/nvm.sh
+OS_TYPE=$(uname -s | awk '{print substr($0,0,10)}')
+if [ "$OS_TYPE" = "Darwin" ]
+then
+	source $(brew --prefix nvm)/nvm.sh
+fi
 
 # AWS configurations
 

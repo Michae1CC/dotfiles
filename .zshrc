@@ -28,4 +28,9 @@ autoload -Uz compinit && compinit -i
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+bindkey '^I' "TAB:menu-complete"
+bindkey '^I' "set show-all-if-ambiguous on"
