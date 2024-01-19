@@ -30,7 +30,3 @@ autoload -Uz compinit && compinit -i
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-bindkey '^I' "TAB:menu-complete"
-bindkey '^I' "set show-all-if-ambiguous on"

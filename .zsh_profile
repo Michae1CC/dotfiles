@@ -10,6 +10,9 @@ unset file;
 # created by them
 umask 0022
 
+bindkey '^I' "TAB:menu-complete"
+bindkey '^I' "set show-all-if-ambiguous on"
+
 OS_TYPE=$(uname -s | awk '{print substr($0,0,10)}')
 if [ "$OS_TYPE" = "Darwin" ]
 then
