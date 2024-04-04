@@ -48,7 +48,7 @@ OS_TYPE=$(uname -s | awk '{print substr($0,0,10)}')
 if [ "$OS_TYPE" = "MINGW64_NT" ]
 then
     # Windows specific aliases
-    alias jq='jq-win64.exe'
+    alias jq='jq-windows-amd64.exe'
     alias pycharm='pycharm64.exe'
     alias tree='tree.exe'
     alias kubectl='kubectl.exe'
